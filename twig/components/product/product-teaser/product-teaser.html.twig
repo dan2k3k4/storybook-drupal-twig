@@ -1,24 +1,24 @@
 <div class="product-teaser">
-  {% if metaTitle %}
-    <p class="product-teaser__meta-title h5 light">
-      <a class="product-teaser__entity-link"  title="{{ title }}" href="{{ productLink }}">
-        {{ metaTitle }}
-      </a>
-    </p>
-  {% endif %}
-  <h3 class="product-teaser__title h2">
-    <a class="product-teaser__entity-link" href="{{ productLink }}" title="{{ title }}">
-      {{ title }}
-    </a>
-  </h3>
-  <div class="center-align">
-    <a class="product-teaser__detail-link" href="{{ productLink }}" title="{{ title }}">
-      {% trans 'See Details' with {'context': 'ZHINST frontend'} %}
-    </a>
-    {% if quoteToolAccess and not discontinued and not productQuoteToolUrl is empty %}
-      <a class="product-teaser__quote-link button button--light-grey" href="{{ productQuoteToolUrl.path }}">
-        {% trans 'Get a Quote' with {'context': 'ZHINST frontend'} %}
-      </a>
+    {% if metaTitle %}
+        <p class="product-teaser__meta-title h5 light">
+            <a class="product-teaser__entity-link" title="{{ title }}" href="{{ productLink }}">
+                {{ metaTitle }}
+            </a>
+        </p>
     {% endif %}
-  </div>
+    <h3 class="product-teaser__title h2">
+        <a class="product-teaser__entity-link" href="{{ productLink }}" title="{{ title }}">
+            {{ title }}
+        </a>
+    </h3>
+    <div class="center-align">
+        <a class="product-teaser__detail-link" href="{{ productLink }}" title="{{ title }}">
+            {% 'See Details' | t %}
+        </a>
+        {% if quoteToolAccess and not discontinued and not productQuoteToolUrl is empty %}
+            <a class="product-teaser__quote-link button button--light-grey" href="{{ productQuoteToolUrl.path }}">
+                {% 'Get a Quote' | t %}
+            </a>
+        {% endif %}
+    </div>
 </div>

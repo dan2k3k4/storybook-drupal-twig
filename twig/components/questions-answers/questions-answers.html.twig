@@ -1,26 +1,26 @@
 <section class="questions-answers">
-  <h2 id="general">{{title}}</h2>
-  {% if questionsAnswers|length > 0 %}
-    <zi-accordion openText="{% trans 'Open menu' with {'context': 'Drupal frontend'} %}" closeText="{% trans 'Close menu' with {'context': 'Drupal frontend'} %}">
-      <section class="accordion">
-        <ul>
-          {% for questionAnswer in questionsAnswers %}
-            <li class="accordion__item">
-              <button class="accordion__action" type="button" aria-pressed="false" aria-expanded="false">
-                <p class="accordion__subtitle">{{ questionAnswer.entity.question }}</p>
-                <div class="accordion__close icon plus medium" role="button" title="{% trans 'Open menu' with {'context': 'Drupal frontend'} %}" tabindex="0">
-                  <span class="visually-hidden">{% trans 'Open menu' with {'context': 'Drupal frontend'} %}</span>
-                </div>
-              </button>
-              <div class="accordion__content">
-                <div class="wrapper">
-                  {{ questionAnswer.entity.answer.processed | raw}}
-                </div>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
-    </zi-accordion>
-  {% endif %}
+    <h2 id="general">{{title}}</h2>
+    {% if questionsAnswers|length > 0 %}
+        <zi-accordion opentext="{% 'Open menu' with {'context': 'Drupal frontend'} %}" closetext="{% trans 'Close menu' | t %}">
+            <section class="accordion">
+                <ul>
+                    {% for questionAnswer in questionsAnswers %}
+                        <li class="accordion__item">
+                            <button class="accordion__action" type="button" aria-pressed="false" aria-expanded="false">
+                                <p class="accordion__subtitle">{{ questionAnswer.entity.question }}</p>
+                                <div class="accordion__close icon plus medium" role="button" title="{% 'Open menu' | t %}" tabindex="0">
+                                    <span class="visually-hidden">{% 'Open menu' | t %}</span>
+                                </div>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="wrapper">
+                                    {{ questionAnswer.entity.answer.processed | raw}}
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </zi-accordion>
+    {% endif %}
 </section>

@@ -1,4 +1,4 @@
-<zi-accordion openText="{% trans 'Open menu' with {'context': 'Drupal frontend'} %}" closeText="{% trans 'Close menu' with {'context': 'Drupal frontend'} %}">
+<zi-accordion openText="{% 'Open menu' | t %}" closeText="{% 'Close menu' | t %}">
   <section class="accordion">
     <ul>
       {% for item in items %}
@@ -6,8 +6,8 @@
           <li class="accordion__item" id="{{ item.id }}">
             <button class="accordion__action" type="button" aria-pressed="false" aria-expanded="false">
               <h3 class="accordion__title h4">{{ item.title }}</h3>
-              <div class="accordion__close icon plus medium" role="button" title="{% trans 'Open menu' with {'context': 'Drupal frontend'} %}" tabindex="0">
-                <span class="visually-hidden">{% trans 'Open menu' with {'context': 'Drupal frontend'} %}</span>
+              <div class="accordion__close icon plus medium" role="button" title="{% 'Open menu' | t %}" tabindex="0">
+                <span class="visually-hidden">{% 'Open menu' | t %}</span>
               </div>
             </button>
             <div class="accordion__content">
