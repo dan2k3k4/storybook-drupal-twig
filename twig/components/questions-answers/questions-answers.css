@@ -1,0 +1,37 @@
+@import '../accordion/accordion.css';
+
+.questions-answers {
+  & .accordion {
+    &__action {
+      min-height: 50px;
+      padding: var(--space-100) var(--space-1000) var(--space-100) 0;
+
+      @media (--desktop-up) {
+        font-size: var(--font-p);
+      }
+
+      @media (--desktop-down) {
+        line-height: var(--line-height-xxs);
+      }
+    }
+
+    &__subtitle {
+      margin: 0;
+    }
+
+    &__content .wrapper {
+      @media (--desktop-down) {
+        padding: var(--space-150);
+      }
+    }
+  }
+}
+
+/* Edge case margin overrides on last sibling text following accordion q&a */
+.questions-answers ~ section:last-of-type {
+  margin-bottom: 0;
+
+  p {
+    margin-bottom: 0;
+  }
+}

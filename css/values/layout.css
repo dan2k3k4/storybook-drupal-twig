@@ -1,0 +1,9 @@
+:root {
+  /* Header sizes */
+  --top-header-height: 42px;
+  --bottom-header-height-mobile: 65px;
+  --bottom-header-height-desktop: 112px;
+
+  /* Page max width */
+  --max-width: 1183px;
+}

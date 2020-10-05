@@ -1,0 +1,53 @@
+@define-mixin list-style-blue {
+  color: var(--dark-blue);
+  margin-bottom: var(--space-100);
+  list-style-type: none;
+  display: table-row;
+
+  &::before {
+    font-size: 0.8em;
+    content: '\00220F';
+    display: table-cell;
+    text-align: right;
+  }
+}
+
+@define-mixin olist-style-blue {
+  color: var(--dark-blue);
+  list-style-type: decimal;
+  margin-bottom: var(--space-100);
+  padding-left: 0;
+
+  /* Firefox hack. */
+  .firefox &,
+  .safari & {
+    margin-left: 27px;
+    padding-left: 0;
+  }
+
+  /* Chrome hack. */
+  .is-chrome & {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+@define-mixin list-style {
+  color: var(--black);
+  margin-bottom: var(--space-100);
+  list-style-type: none;
+  display: table-row;
+
+  &::before {
+    font-size: 0.8em;
+    content: '\00220F';
+    display: table-cell;
+    text-align: right;
+  }
+}
+
+@define-mixin olist-style {
+  @mixin olist-style-blue;
+
+  color: var(--black);
+}

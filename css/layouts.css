@@ -1,0 +1,98 @@
+.inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--space-200);
+
+  @media (--wide-desktop-up) {
+    padding: 0;
+  }
+}
+
+/* To Vertically center child elements, apply these classes:
+   * "center-align" - centers at all screen sizes.
+   * "center-align center-align--desktop-up" - only centers at tablet and larger.
+   * "center-align center-align--desktop-up" - only centers at desktop.
+*/
+.center-align {
+  display: flex;
+  align-items: center;
+
+  /* Fix centering in IE */
+  &::after {
+    content: '';
+    min-height: inherit;
+    font-size: 0;
+  }
+
+  &--desktop-up {
+    display: block;
+
+    @media (--desktop-up) {
+      display: flex;
+    }
+  }
+}
+
+.two-columns {
+  @media (--desktop-up) {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__column {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+.col-right--small .two-columns__column:nth-of-type(1n+1) {
+  @media (--desktop-up) {
+    flex: 0 1 50%;
+  }
+}
+
+.col-right--small .two-columns__column:nth-of-type(2n+2) {
+  @media (--desktop-up) {
+    flex: 0 1 35%;
+  }
+}
+
+.col-left--small .two-columns__column:nth-of-type(1n+1) {
+  @media (--desktop-up) {
+    flex: 0 1 35%;
+  }
+}
+
+.col-left--small .two-columns__column:nth-of-type(2n+2) {
+  @media (--desktop-up) {
+    flex: 0 1 50%;
+  }
+}
+
+.three-columns {
+  @media (--desktop-up) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__column {
+      flex: 0 0 33.333%;
+      max-width: 33.333%;
+    }
+  }
+
+  &--with-border {
+    .three-columns__column + .three-columns__column {
+      border-top: 1px solid grey;
+
+      @media (--desktop-up) {
+        border-left: 1px solid var(--light-grey);
+        border-top: 0;
+      }
+    }
+  }
+}

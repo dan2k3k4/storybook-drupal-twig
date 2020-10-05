@@ -1,0 +1,9 @@
+:root {
+  --shadow-2-10: 0 2px 10px 0 rgba(0, 0, 0, 0.13);
+  --shadow-4-4: 0 4px 4px 0 rgba(0, 0, 0, 0.08);
+  --shadow-2-4: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  --shadow-5: 0 0 10px 0 rgba(0, 0, 0, 0.14);
+  --shadow-10: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-14: 0 10px 20px 0 rgba(0, 0, 0, 0.14);
+  --shadow-error: 0 0 1.5px 1px red;
+}

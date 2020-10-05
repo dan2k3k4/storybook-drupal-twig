@@ -1,0 +1,31 @@
+{% set titleId = title|lower|replace({' ':'-'}) %}
+
+{% if entityPublished %}
+  <div class="news-teaser">
+    <div class="news-teaser__wrapper">
+      <div class="news-teaser__date">{{ date.value | date('d.m.Y') }}</div>
+      {% if headerImage %}
+        <div class="news-teaser__image">
+          <a aria-labelledby="{{ titleId }}" class="news-teaser__entity-link" href="{{ entityUrl.path }}" title="{{ title }}">
+          {% include '@storybook/components/media-image/media-image.html.twig' with {
+            mediaImage: headerImage.entity.mediaImage,
+            imageStyle: 'freeAspectRatioMedium',
+            calcAspectRatioHeight: 'true',
+          } only %}
+          </a>
+        </div>
+      {% endif %}
+      <h3 id="{{ titleId }}" class="news-teaser__title">
+        <a aria-labelledby="{{ titleId }}" class="news-teaser__entity-link" href="{{ entityUrl.path }}" title="{{ title }}">
+          {{ title }}
+        </a>
+      </h3>
+      {% if content %}
+        <div class="news-teaser__content">{{ content.processed | raw }}</div>
+      {% endif %}
+      <a aria-labelledby="{{ titleId }}" class="button button--blue button--outline" href="{{ entityUrl.path }}" title="{{ title }}">
+        {% trans 'Read More' with {'context': 'Drupal frontend'} %}
+      </a>
+    </div>
+  </div>
+{% endif %}

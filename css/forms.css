@@ -1,0 +1,154 @@
+button,
+input,
+optgroup,
+select,
+textarea {
+  @mixin font-size-xs;
+  /* Keep form elements constrained in their containers. */
+  box-sizing: border-box;
+  max-width: 100%;
+  /* Remove the margin in Firefox and Safari. */
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+select:not([multiple]) {
+  @mixin font-light;
+
+  background-image: url(../css/icons/arrow-down-dark-blue.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 0.7em 0.7em;
+  background-color: transparent;
+  appearance: none;
+  border: none;
+  border-bottom: 1px solid var(--dark-blue);
+  width: 100%;
+  padding: var(--space-100) var(--space-600) var(--space-100) 0;
+  border-radius: 0;
+  color: var(--dark-blue);
+
+  /* Added to remove styles from IE. */
+  &::-ms-expand {
+    display: none;
+  }
+
+  @media (--desktop-down) {
+    @mixin select-box;
+  }
+}
+
+label {
+  @mixin font-size-xs;
+
+  display: block;
+}
+
+textarea,
+[type='text'],
+[type='search'],
+[type='tel'],
+[type='url'],
+[type='email'],
+[type='password'],
+[type='date'],
+[type='time'],
+[type='number'] {
+  border: 1px solid var(--grey);
+  border-radius: 2px;
+  padding: 7px 10px;
+}
+
+/* stylelint-disable no-descending-specificity */
+[type="checkbox"],
+[type="radio"] {
+  position: absolute;
+  z-index: 2;
+  width: var(--font-xs);
+  height: var(--font-xs);
+  opacity: 0.5;
+  appearance: none;
+
+  + label {
+    position: relative;
+    padding-left: var(--space-325);
+  }
+
+  + label::before,
+  + label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  + label::before {
+    border: 1px solid var(--grey);
+    padding: 2px;
+    background: var(--white);
+  }
+
+  &:checked + label::before {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+}
+
+[type="checkbox"] {
+  margin-top: 4px;
+
+  &,
+  + label::before {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+  }
+
+  + label::before {
+    top: 4px;
+  }
+
+  + label::after {
+    top: 3px;
+    left: 4px;
+    display: block;
+    width: 5.5px;
+    height: 10px;
+    transform-origin: center center;
+    transform: rotate(42.5deg) skew(7.5deg, 7.5deg) scale(0);
+    border: 1px solid transparent;
+    border-bottom-color: var(--white);
+    border-right-color: var(--white);
+  }
+
+  &:checked + label::after {
+    transform: rotate(45deg) skew(10deg, 10deg) scale(1);
+  }
+}
+
+[type="radio"] {
+  margin-top: 4px;
+
+  &,
+  + label::before {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+
+  + label::after {
+    content: none;
+  }
+
+  + label::before {
+    top: 4px;
+  }
+
+  &:checked + label::before {
+    box-shadow: inset 0 0 0 2.5px var(--white);
+  }
+}

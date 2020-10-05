@@ -1,0 +1,35 @@
+<div class="product-teaser-row">
+  <div class="two-columns">
+    <div class="product-teaser-row__image two-columns__column">
+      <h3 class="product-teaser-row__title h2{{ hideTitle ? ' visually-hidden' : '' }}">
+        <a class="product-teaser__entity-link" title="{{ title }}" href="{{ productLink }}">
+          {{ title }}
+        </a>
+      </h3>
+    </div>
+    <div class="product-teaser-row__content two-columns__column">
+      <p class="product-teaser__meta-title h5 light{{ hideTitle ? ' visually-hidden' : '' }}">
+          <a class="product-teaser__entity-link" title="{{ fieldSubtitle }}" href="{{ productLink }}">
+          {{ fieldSubtitle }}
+        </a>
+      </p>
+      <h3 class="product-teaser-row__title h2{{ hideTitle ? ' visually-hidden' : '' }}">
+        <a class="product-teaser__entity-link" title="{{ title }}" href="{{ productLink }}">
+          {{ title }}
+        </a>
+      </h3>
+      <div class="product-teaser-row__actions center-align">
+        {% if productLink %}
+          <a class="product-teaser-row__detail-link" href="{{ productLink }}">
+            {% trans 'See Details' with {'context': 'ZHINST frontend'} %}
+          </a>
+        {% endif %}
+        {% if quoteToolAccess and not discontinued %}
+          <a class="product-teaser-row__quote-link button button--light-grey" href="{{ productQuoteToolUrl.path }}">
+            {% trans 'Get a Quote' with {'context': 'ZHINST frontend'} %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

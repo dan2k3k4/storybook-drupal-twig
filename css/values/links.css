@@ -1,0 +1,69 @@
+@define-mixin link {
+  color: var(--grey);
+  text-decoration: none;
+
+  &:--link-states {
+    color: var(--grey);
+    text-decoration: underline;
+  }
+}
+
+@define-mixin link-black {
+  color: var(--black);
+
+  &:--link-states {
+    color: var(--black);
+    text-decoration: underline;
+  }
+}
+
+@define-mixin link-blue {
+  color: var(--blue);
+
+  &:--link-states {
+    color: var(--blue);
+    text-decoration: underline;
+  }
+}
+
+@define-mixin link-arrow-base {
+  @mixin font-regular;
+
+  display: block;
+  padding-right: var(--space-500);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1em 0.7em;
+}
+
+@define-mixin link-arrow-right-blue {
+  @mixin link-arrow-base;
+
+  background-image: url(../icons/arrow-right-blue.svg);
+}
+
+@define-mixin link-arrow-right-with-bar {
+  @mixin link-arrow-base;
+
+  background-image: url(../icons/arrow-right-with-bar.svg);
+}
+
+@define-mixin link-arrow-right-with-bar-blue {
+  @mixin link-arrow-base;
+
+  background-image: url(../icons/arrow-right-with-bar-blue.svg);
+}
+
+@define-mixin link-arrow-right-with-bar-blue-inline {
+  @mixin link-arrow-right-with-bar-blue;
+
+  background-position: top 0.4em right;
+  display: inline-block;
+  padding-right: var(--space-400);
+}
+
+@define-mixin link-arrow-down {
+  @mixin link-arrow-base;
+
+  background-image: url(../icons/arrow-down.svg);
+}

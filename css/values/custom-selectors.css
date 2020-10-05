@@ -1,0 +1,10 @@
+@custom-selector :--typographic-block-elements h1, h2, h3, h4, h5, h6, p;
+@custom-selector :--link-states :focus, :hover;
+@custom-selector :--buttons [type=button], [type=submit], [type=reset];
+
+/* HTML element selectors */
+@custom-selector :--html-buttons        button, [type=button], [type=reset], [type=submit];
+@custom-selector :--html-form-text      textarea, select, [type=text], [type=search], [type=tel], [type=url], [type=email], [type=password], [type=date], [type=time], [type=number];
+@custom-selector :--html-headings       h1, h2, h3, h4, h5, h6;
+@custom-selector :--html-block-level    blockquote, dl, menu, ol, ul, figure, hr, p, pre, :--html-headings;
+@custom-selector :--html-monospace-text pre, code, kbd, samp, var;

@@ -1,0 +1,69 @@
+/* Down */
+@custom-media --mobile-down (max-width: 479px);
+@custom-media --tablet-down (max-width: 767px);
+@custom-media --desktop-down (max-width: 1023px);
+
+/* Up */
+@custom-media --mobile-up (min-width: 479px);
+@custom-media --wide-desktop-up (min-width: 1366px);
+@custom-media --max-width-up (min-width: 1183px);
+@custom-media --desktop-up (min-width: 1024px);
+@custom-media --tablet-up (min-width: 768px);
+
+/* Used in Media Image for front page slider  */
+.show--mobi,
+.show--mobi--tablet {
+  display: block;
+
+  @media (--desktop-up) {
+    display: none;
+  }
+}
+
+.hide--mobi {
+  @media (--mobile-down) {
+    display: none;
+  }
+}
+
+.hide--mobi--tablet {
+  @media (--desktop-down) {
+    display: none;
+  }
+}
+
+.show--tablet-up {
+  @media (--tablet-up) {
+    display: block;
+  }
+}
+
+.hide--tablet {
+  @media (--tablet-up) {
+    display: none;
+  }
+}
+
+.show--desktop-up {
+  @media (--desktop-up) {
+    display: block;
+  }
+}
+
+.hide--desktop {
+  @media (--desktop-up) {
+    display: none;
+  }
+}
+
+.show--wide-desktop-up {
+  @media (--wide-desktop-up) {
+    display: block;
+  }
+}
+
+.hide--wide {
+  @media (--wide-desktop-up) {
+    display: none;
+  }
+}

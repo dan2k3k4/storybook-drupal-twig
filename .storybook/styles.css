@@ -1,0 +1,149 @@
+/* These styles are storybook-specific and are not used in the project. */
+@import '../css/all.css';
+
+.story-wrapper {
+  padding: 0 var(--space-100);
+  margin-bottom: var(--space-500);
+
+  @media (--desktop-up) {
+    padding: 0 var(--space-500);
+    margin-bottom: var(--space-1000);
+  }
+
+  &.invert {
+    background-color: var(--black);
+    padding-bottom: var(--space-500);
+  }
+}
+
+.shadow-wrapper,
+.icons-wrapper,
+.color-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: var(--space-1000);
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.item {
+  margin: var(--space-300) var(--space-300) 0 0;
+  padding: var(--space-300);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  &--icon {
+    background-color: var(--lighter-grey);
+    border: 1px solid rgba(235, 235, 243, 1);
+    min-width: 300px;
+  }
+}
+
+.label {
+  margin-top: var(--space-300);
+}
+
+.color,
+.shadow {
+  display: block;
+  width: 240px;
+  height: 170px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.white {
+  background-color: var(--white);
+  border: 1px solid rgba(172, 172, 172, 0.3);
+}
+
+.light-grey {
+  background-color: var(--light-grey);
+}
+
+.lighter-grey {
+  background-color: var(--lighter-grey);
+}
+
+.grey {
+  background-color: var(--grey);
+}
+
+.black {
+  background-color: var(--black);
+}
+
+.dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.petrol {
+  background-color: var(--petrol);
+}
+
+.blue {
+  background-color: var(--blue);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+.dark-grey {
+  background-color: var(--dark-grey);
+}
+
+.shadow-10 {
+  box-shadow: var(--shadow-10);
+}
+
+.shadow-14 {
+  box-shadow: var(--shadow-14);
+}
+
+.light {
+  @mixin font-light;
+}
+
+.regular {
+  @mixin font-regular;
+}
+
+.w100 {
+  font-weight: 100;
+}
+
+.w200 {
+  font-weight: 200;
+}
+
+.w300 {
+  font-weight: 300;
+}
+
+.w400 {
+  font-weight: 400;
+}
+
+.w500 {
+  font-weight: 500;
+}
+
+.w600 {
+  font-weight: 600;
+}
+
+.w700 {
+  font-weight: 700;
+}
+
+.w800 {
+  font-weight: 800;
+}
+
+.w900 {
+  font-weight: 900;
+}

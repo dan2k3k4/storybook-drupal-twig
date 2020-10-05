@@ -1,0 +1,6 @@
+<section class="news-paragraph">
+  <h2 id="general">{{title}}</h2>
+  {% for newsTeaser in news %}
+    {% include '@storybook/components/news/news-teaser/news-teaser.html.twig' with newsTeaser.entity only %}
+  {% endfor %}
+</section>

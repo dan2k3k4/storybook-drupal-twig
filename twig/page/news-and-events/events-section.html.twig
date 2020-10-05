@@ -1,0 +1,21 @@
+{% if graphql.featuredEvent|length > 0 %}
+  {% include '@storybook/components/events/events-hero/events-hero.html.twig' with graphql.featuredEvent[0] only %}
+{% endif %}
+<section class="latest-events">
+  <div class="events-overview__items">
+    {% if graphql.latestEvents|length > 0 %}
+      {% set eventsCount = 0 %}
+      {% for event in graphql.latestEvents %}
+        {% if event.id != graphql.featuredEvent[0].id and eventsCount < 3 %}
+          {% include '@storybook/components/events/events-teaser/events-teaser.html.twig' with event only %}
+          {% set eventsCount = eventsCount +1 %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <div class="events-teaser events-teaser--all-events">
+      <a href="{{ path('view.events_overview.page_events_overview') }}" class="events-teaser__content">
+        <div class="events-teaser__all-link">{% trans 'All upcoming events' with {'context': 'Drupal frontend'} %} <div class="icon arrow-right-with-bar-white"></div></div>
+      </a>
+    </div>
+  </div>
+</section>

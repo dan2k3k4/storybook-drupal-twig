@@ -1,0 +1,21 @@
+.text,
+.paragraph--type--text {
+  @mixin component-margin-bottom;
+
+  &__content {
+    padding-top: var(--space-200);
+
+    @media (--desktop-up) {
+      padding-top: 0;
+      padding-left: var(--space-200);
+    }
+  }
+
+  code,
+  pre {
+    border: 1px dotted var(--blue);
+    color: var(--blue);
+    display: inline-block;
+    padding: 1.8rem;
+  }
+}

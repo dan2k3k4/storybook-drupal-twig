@@ -1,0 +1,96 @@
+:root {
+  /* font sizing */
+  --font-xxs: 1.2rem;
+  --font-button: 1.3rem;
+  --font-xs: 1.4rem;
+  --font-p: 1.6rem;
+  --font-l: 1.8rem;
+  --font-xl: 2.8rem;
+  --font-h5: 1.8rem;
+  --font-h4: 2.2rem;
+  --font-h3: 2.4rem;
+  --font-h2: 2.8rem;
+  --font-h1: 3.8rem;
+
+  /* line height */
+  --line-height-default: 1.75;
+  --line-height-xxs: 1.8rem;
+  --line-height-xs: 2.4rem;
+  --line-height-p: 2.8rem;
+  --line-height-l: 2.1rem;
+  --line-height-xl: 3.8rem;
+  --line-height-h5: 2.1rem;
+  --line-height-h4: 2.9rem;
+  --line-height-h3: 2.9rem;
+  --line-height-h2: 3.8rem;
+  --line-height-h1: 4.5rem;
+
+  /* font family */
+  --font-family-regular: 'Verdana', sans-serif;
+  --font-family-light: sans-serif;
+}
+
+@define-mixin font-regular {
+  font-family: var(--font-family-regular);
+  font-weight: normal;
+}
+
+@define-mixin font-light {
+  font-family: var(--font-family-light);
+  font-weight: normal;
+}
+
+@define-mixin font-size-xxs {
+  font-size: var(--font-xxs);
+  line-height: var(--line-height-xxs);
+}
+
+@define-mixin font-size-xs {
+  font-size: var(--font-xs);
+  line-height: var(--line-height-xs);
+}
+
+@define-mixin font-button {
+  font-size: var(--font-button);
+  line-height: 1;
+}
+
+@define-mixin font-size-p {
+  font-size: var(--font-p);
+  line-height: var(--line-height-p);
+}
+
+@define-mixin font-size-l {
+  font-size: var(--font-l);
+  line-height: var(--line-height-l);
+}
+
+@define-mixin font-size-xl {
+  font-size: var(--font-xl);
+  line-height: var(--line-height-xl);
+}
+
+@define-mixin font-size-h5 {
+  font-size: var(--font-h5);
+  line-height: var(--line-height-h5);
+}
+
+@define-mixin font-size-h4 {
+  font-size: var(--font-h4);
+  line-height: var(--line-height-h4);
+}
+
+@define-mixin font-size-h3 {
+  font-size: var(--font-h3);
+  line-height: var(--line-height-h3);
+}
+
+@define-mixin font-size-h2 {
+  font-size: var(--font-h2);
+  line-height: var(--line-height-h2);
+}
+
+@define-mixin font-size-h1 {
+  font-size: var(--font-h1);
+  line-height: var(--line-height-h1);
+}

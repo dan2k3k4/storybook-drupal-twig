@@ -1,0 +1,8 @@
+@define-mixin select-box {
+  background-color: var(--white);
+  background-position: right var(--space-100) center;
+  border: 1px solid var(--light-grey);
+  padding-left: var(--space-100);
+  margin-top: var(--space-200);
+  max-width: 300px;
+}

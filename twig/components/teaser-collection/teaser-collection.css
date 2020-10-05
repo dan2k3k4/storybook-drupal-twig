@@ -1,0 +1,13 @@
+.teaser-collection {
+  &__column {
+    margin-bottom: var(--space-500);
+
+    @media (--desktop-up) {
+      flex: 0 0 48%;
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}

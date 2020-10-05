@@ -1,0 +1,56 @@
+:root {
+  /* Spacing */
+  --space-50: 4px;
+  --space-100: 8px; /* Base margin size */
+  --space-150: 12px;
+  --space-200: 16px;
+  --space-250: 20px;
+  --space-300: 24px;
+  --space-325: 26px;
+  --space-400: 32px;
+  --space-500: 40px;
+  --space-600: 48px;
+  --space-700: 56px;
+  --space-800: 64px;
+  --space-1000: 80px;
+  --space-1300: 104px;
+  --space-1400: 112px;
+  --space-1500: 120px;
+
+  /* Button Spacing */
+  --space-default-btn: 12px;
+}
+
+@define-mixin margin-bottom {
+  margin-bottom: var(--space-200);
+
+  @media (--desktop-up) {
+    margin-bottom: var(--space-300);
+  }
+}
+
+@define-mixin component-margin-bottom {
+  margin-bottom: var(--space-500);
+
+  @media (--desktop-up) {
+    margin-bottom: var(--space-1000);
+  }
+}
+
+@define-mixin remove-side-margin {
+  margin-left: calc(var(--space-200) * -1);
+  margin-right: calc(var(--space-200) * -1);
+
+  @media (--desktop-up) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@define-mixin component-margin-top {
+  margin-top: var(--space-500);
+
+  @media (--desktop-up) {
+    margin-top: var(--space-1000);
+  }
+}

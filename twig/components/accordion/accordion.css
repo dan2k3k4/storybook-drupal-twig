@@ -1,0 +1,74 @@
+.accordion {
+  @mixin component-margin-bottom;
+
+  display: block;
+
+  &__item {
+    overflow: hidden;
+    border-bottom: 1px dotted var(--black);
+
+    &:first-child {
+      border-top: 1px dotted var(--black);
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__action {
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+    padding: var(--space-300) var(--space-1000) var(--space-300) 0;
+
+    &:focus {
+      outline: none;
+
+      & .accordion__title {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    right: 5px;
+
+    .visible & {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+  }
+
+  &__content {
+    height: 1px;
+    display: block;
+    width: 100%;
+    visibility: hidden;
+    transition: height var(--transition);
+
+    @media (--desktop-down) {
+      @mixin font-size-xs;
+    }
+
+    .visible & {
+      height: auto;
+      visibility: visible;
+    }
+
+    & .wrapper {
+      padding: var(--space-300);
+    }
+
+    .text {
+      margin-bottom: 0;
+    }
+  }
+}

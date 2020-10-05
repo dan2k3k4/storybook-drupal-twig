@@ -1,0 +1,364 @@
+:root {
+  --disabled-opacity: 0.7;
+}
+
+/* stylelint-disable no-descending-specificity, max-nesting-depth */
+table button,
+table .button {
+  display: inline;
+}
+
+.button,
+:--buttons.button {
+  @mixin font-regular;
+  @mixin font-button;
+
+  padding: var(--space-default-btn) var(--space-300);
+  text-align: center;
+  border: 1px solid var(--grey);
+  color: var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  width: auto;
+  text-decoration: none;
+  display: table;
+  transition: all 0.3s ease;
+
+  .ie-edge & {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+
+  &:disabled {
+    color: inherit;
+    cursor: default;
+    opacity: var(--disabled-opacity);
+  }
+
+  &--small {
+    padding: var(--space-100) var(--space-200);
+  }
+
+  &--big {
+    padding: var(--space-default-btn) 3.2em;
+  }
+
+  &.button--wide {
+    width: 100%;
+  }
+
+  &--blue {
+    color: var(--white);
+    background-color: var(--blue);
+    border-color: var(--blue);
+
+    &:focus,
+    &:hover {
+      color: var(--white);
+      background-color: var(--black);
+      border-color: var(--black);
+    }
+
+    &:active {
+      color: var(--white);
+      background-color: var(--dark-blue);
+      border-color: var(--dark-blue);
+    }
+  }
+
+  &--grey {
+    color: var(--white);
+    background-color: var(--grey);
+    border-color: var(--grey);
+
+    &:focus,
+    &:hover {
+      color: var(--white);
+      background-color: var(--dark-grey);
+      border-color: var(--dark-grey);
+    }
+
+    &:active {
+      color: var(--white);
+      background-color: var(--black);
+      border-color: var(--black);
+    }
+  }
+
+  &--light-grey {
+    background-color: var(--light-grey);
+    border-color: var(--light-grey);
+
+    &:focus,
+    &:hover {
+      color: var(--white);
+      background-color: var(--dark-grey);
+      border-color: var(--dark-grey);
+    }
+
+    &:active {
+      color: var(--white);
+      background-color: var(--blue);
+      border-color: var(--blue);
+    }
+  }
+
+  &--orange {
+    &,
+    &:hover,
+    &:active {
+      color: var(--white);
+      background-color: var(--orange);
+      border-color: var(--orange);
+    }
+  }
+
+  &--checkbox,
+  &--radio {
+    color: var(--grey);
+    padding: 0;
+    position: relative;
+
+    &,
+    &:hover,
+    &:active {
+      border-color: transparent;
+      background-color: var(--white);
+    }
+
+    label {
+      display: inline-block;
+      padding: var(--space-default-btn) var(--space-300) var(--space-default-btn) var(--space-600);
+      cursor: pointer;
+      border: 1px solid var(--light-grey);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    input {
+      position: absolute;
+      top: 11px;
+      left: 20px;
+    }
+
+    &:focus,
+    &:hover {
+      label {
+        color: var(--black);
+        border-color: var(--black);
+      }
+    }
+
+    input:checked + label {
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+  }
+
+  &--radio {
+    input {
+      top: 10px;
+    }
+  }
+
+  &--icon {
+    color: var(--blue);
+    background-color: var(--white);
+    border-color: var(--blue);
+    padding: var(--space-default-btn) var(--space-300) var(--space-default-btn) var(--space-600);
+    position: relative;
+
+    &::before {
+      content: '';
+      width: var(--icon-width-medium);
+      height: var(--icon-width-medium);
+      display: inline-block;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: absolute;
+      top: 7px;
+      left: var(--space-200);
+    }
+
+    &:hover,
+    &:active {
+      color: var(--white);
+      background-color: var(--blue);
+      border-color: var(--blue);
+    }
+
+    &.button--small {
+      text-indent: 100%;
+      overflow: hidden;
+      width: var(--space-500);
+      padding-left: 0;
+      padding-right: 0;
+      border-radius: 2px;
+
+      &::before {
+        left: 7px;
+      }
+    }
+
+    &.video {
+      padding-left: 52px;
+    }
+
+    &.mail {
+      background-color: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+
+      &:hover,
+      &:focus {
+        background-color: var(--black);
+        border-color: var(--black);
+      }
+
+      .ie-edge & {
+        display: inline-block;
+        max-width: 40px;
+      }
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+
+    &.button--blue {
+      color: var(--blue);
+
+      &:focus,
+      &:hover {
+        color: var(--black);
+        background-color: transparent;
+        border-color: var(--black);
+      }
+
+      &:active {
+        color: var(--dark-blue);
+        background-color: transparent;
+        border-color: var(--dark-blue);
+      }
+    }
+
+    &.button--light-grey {
+      color: var(--grey);
+
+      &:hover,
+      &:focus {
+        color: var(--black);
+        background-color: transparent;
+        border-color: var(--black);
+      }
+    }
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Increase specificity by using the same selector twice */
+.button-link.button-link {
+  /* Overrides styles from .button */
+  border: none;
+  padding: 0;
+  /* End override */
+
+  @mixin font-size-xs;
+
+  background-position: top 0.4em left;
+  background-repeat: no-repeat;
+  color: var(--blue);
+  padding-left: 1em;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.sidebar-widget {
+  align-items: center;
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: rotate(90deg) translateY(-105%);
+  z-index: 89;
+  padding: calc(var(--space-200) - 3px) var(--space-250);
+  border: none;
+
+  &:hover {
+    background-color: var(--black);
+  }
+
+  &:focus {
+    background-color: var(--orange);
+    outline: none;
+    border-color: transparent;
+  }
+
+  &:focus:hover {
+    background-color: var(--black);
+  }
+
+  &__icon {
+    transform: rotate(-90deg);
+    width: 16px;
+    height: 26px;
+  }
+
+  &__text {
+    @mixin font-light;
+
+    color: var(--white);
+    display: inline-flex;
+    margin-left: var(--space-150);
+    margin-top: var(--space-50);
+    font-size: var(--font-p);
+    line-height: var(--line-height-xxs);
+  }
+
+  &:focus &__text {
+    color: var(--black);
+  }
+
+  &:focus:hover &__text {
+    color: var(--white);
+  }
+
+  @media (--tablet-up) {
+    display: inline-flex;
+  }
+}
+
+@define-mixin buttonBlue {
+  background-color: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+
+  &:focus,
+  &:hover {
+    color: var(--white);
+    background-color: black;
+    border-color: var(--black);
+  }
+
+  &:active {
+    color: var(--dark-blue);
+    background-color: transparent;
+    border-color: var(--dark-blue);
+  }
+}

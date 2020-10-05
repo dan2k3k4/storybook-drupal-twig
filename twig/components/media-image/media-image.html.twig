@@ -1,0 +1,67 @@
+{%
+  set class = class is not empty ? ' ' ~ class : ''
+%}
+{% if imageSlider %}
+  {% if imagePosition == 'image-background' %}
+    {# large 1183px to fit as bg image #}
+    {% set imagePosStyle = imageStyle %}
+  {% else %}
+    {# 576 to fit on 50% desktop #}
+    {% set imagePosStyle = responsiveStyle.medium %}
+  {% endif %}
+
+  {% if mobileSlideImage and mediaImage %}
+    {# MOBILE IMAGE #}
+    <img class="lazyload media-image show--mobi--tablet hide--desktop" data-src="{{ attribute(mobileSlideImage, responsiveStyle.tablet).url }}" alt="{{ mediaImage.alt }}" />
+    {# DESKTOP IMAGE #}
+    <img class="lazyload media-image hide--mobi--tablet show--desktop-up" data-src="{{ attribute(mediaImage, imagePosStyle).url }}" alt="{{ mediaImage.alt }}" />
+  {% else %}
+    {# Else if no mobi image, show same image on both bot different image styles #}
+    <img class="lazyload media-image show--mobi--tablet hide--desktop" data-src="{{ attribute(mediaImage, responsiveStyle.tablet).url }}" alt="{{ mediaImage.alt }}" />
+    <img class="lazyload media-image hide--mobi--tablet show--desktop-up" data-src="{{ attribute(mediaImage, imagePosStyle).url }}" alt="{{ mediaImage.alt }}" />
+  {% endif %}
+{% elseif responsiveStyle %}
+  <img class="lazyload media-image responsive-style{{class}}"
+    data-srcset="
+    {% if responsiveStyle.small %}
+      {% if mobileSlideImage %}
+      {{ attribute(mobileSlideImage, responsiveStyle.small).url }} 576w,
+      {% else %}
+      {{ attribute(mediaImage, responsiveStyle.small).url }} 576w,
+      {% endif %}
+    {% endif %}
+    {% if responsiveStyle.medium %}
+      {% if mobileSlideImage %}
+      {{ attribute(mobileSlideImage, responsiveStyle.medium).url }} 1023w,
+      {% else %}
+      {{ attribute(mediaImage, responsiveStyle.medium).url }} 1024w,
+      {% endif %}
+    {% endif %}
+    {% if responsiveStyle.large %}
+      {{ attribute(mediaImage, responsiveStyle.large).url }} 1182w,
+    {% endif %}
+    {% if responsiveStyle.custom and customSize and customBreakpoint %}
+      {{ attribute(mediaImage, responsiveStyle.custom).url }} 1183w
+    {% endif %}"
+    {% if noSizes == 'true' %}
+      {# nothing #}
+    {% else %}
+      data-sizes="(max-width: 500px) 500px{% if responsiveStyle.medium %}, (min-width: 501px) and (max-width: 1023px) 1024px{% endif %}{% if responsiveStyle.small %}, (min-width: 1024px) 500px{% endif %}{% if responsiveStyle.large %}, (min-width: 1180px) 576px{% endif %}{% if responsiveStyle.custom and customSize and customBreakpoint %},(min-width: {{ customBreakpoint }}) {{ customSize }}{% endif %}"
+    {% endif %}
+    data-src="{{ attribute(mediaImage, responsiveStyle.medium).url }}"
+    alt="{{ mediaImage.alt }}"
+  />
+{% elseif imageStyle %}
+  {% if defaultHeightStyle is not empty and calcAspectRatioHeight == 'true'%}
+    {%
+      set defaultHeightStyle = '.svg' not in attribute(mediaImage, imageStyle).url ? 'padding-top:' ~ (attribute(mediaImage, imageStyle).height/attribute(mediaImage, imageStyle).width)*100 ~ '%;' : ''
+    %}
+    <div class="wrapper__img" style="{{ defaultHeightStyle }}">
+      <img class="lazyload media-image {{class}}" data-src="{{ attribute(mediaImage, imageStyle).url }}" alt="{{ mediaImage.alt }}" />
+    </div>
+  {% else %}
+    <img class="lazyload media-image {{class}}" data-src="{{ attribute(mediaImage, imageStyle).url }}" alt="{{ mediaImage.alt }}" />
+  {% endif %}
+{% else %}
+  <img class="media-image no-imagestyle {{class}}" src="{{ mediaImage.url }}" alt="{{ mediaImage.alt }}" />
+{% endif %}

@@ -1,0 +1,195 @@
+html {
+  font-size: 62.5%;
+  line-height: var(--line-height-default);
+}
+
+body {
+  @mixin font-light;
+  @mixin font-size-p;
+
+  letter-spacing: 0.2px;
+}
+
+/* Page class is added to prevent styles affecting Drupal styles. */
+:--typographic-block-elements {
+  @mixin margin-bottom;
+  @mixin font-light;
+}
+
+strong,
+b {
+  @mixin font-regular;
+}
+
+a,
+:--typographic-block-elements {
+  color: var(--black);
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:--link-states {
+  text-decoration: underline;
+}
+
+a.link--plain {
+  text-transform: capitalize;
+}
+
+h1,
+.h1 {
+  @mixin font-size-h2;
+
+  color: var(--blue);
+
+  @media (--desktop-up) {
+    @mixin font-size-h1;
+  }
+}
+
+h2,
+.h2 {
+  @mixin font-size-h4; /* 2.2rem */
+
+  color: var(--blue);
+
+  @media (--desktop-up) {
+    @mixin font-size-h2;  /* 2.8 */
+  }
+}
+
+.h2--black {
+  @mixin font-size-h4;
+
+  color: var(--black);
+
+  @media (--desktop-up) {
+    @mixin font-size-h2;
+  }
+}
+
+h3,
+.h3 {
+  @mixin font-size-h5;  /* 1.8rem */
+
+  color: var(--dark-blue);
+
+  @media (--desktop-up) {
+    @mixin font-size-h3;  /* 2.4rem */
+  }
+}
+
+h4,
+.h4 {
+  @mixin font-regular;
+  @mixin font-size-h4; /* 2.2rem */
+
+  color: var(--blue);
+}
+
+h5,
+.h5 {
+  @mixin font-regular;
+  @mixin font-size-h5;
+
+  color: var(--dark-blue);
+
+  @media (--desktop-up) {
+    @mixin font-size-h4;
+  }
+}
+
+h6,
+.h6 {
+  @mixin font-regular;
+  @mixin font-size-p;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.light {
+  @mixin font-light;
+}
+
+ol > ul,
+ul > ol {
+  margin-bottom: var(--space-100);
+}
+
+.text,
+.text__content,
+.product-teaser__description,
+.submenu,
+.wysiwyg,
+.accordion__content {
+  > ul {
+    margin-bottom: var(--space-300);
+    display: table;
+    padding-left: 2px;
+  }
+
+  ul > li {
+    @mixin list-style;
+  }
+
+  ul li ul {
+    margin-bottom: var(--space-100);
+  }
+}
+
+.text,
+.text__content,
+.wysiwyg,
+.accordion__content {
+  > ol {
+    list-style-position: inside;
+    margin-bottom: var(--space-300);
+  }
+
+  ol li ol,
+  ol li ul,
+  ul li ol {
+    margin-bottom: var(--space-100);
+    list-style-position: inside;
+    margin-left: 1.8em;
+  }
+
+  ul li ol {
+    margin-left: 0;
+  }
+
+  ol > li {
+    @mixin olist-style;
+  }
+}
+
+sup,
+sub {
+  line-height: var(--font-p);
+}
+
+.text,
+.text__content,
+.wysiwyg {
+  p + h2,
+  p + h3 {
+    margin-top: var(--space-500);
+  }
+}
+
+pre {
+  height: auto;
+  overflow-x: hidden;
+  padding-bottom: var(--space-200);
+
+  .teaser-layout.count-col-2 &,
+  .teaser-layout.count-col-3 & {
+    white-space: normal;
+    word-break: break-word;
+  }
+}

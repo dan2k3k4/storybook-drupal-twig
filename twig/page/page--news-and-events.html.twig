@@ -1,0 +1,11 @@
+{% extends '@storybook/page/page.html.twig' %}
+
+{% block page_content %}
+  <div class="news-and-events-content">
+    {% include '@storybook/page/news-and-events/events-section.html.twig' %}
+    <section class="news-overview">
+      <h1 class="news-overview__title">{% trans 'Latest News' with {'context': 'Drupal frontend'} %}</h1>
+      {{ page.content }}
+    </section>
+  </div>
+{% endblock %}

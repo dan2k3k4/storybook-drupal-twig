@@ -1,0 +1,16 @@
+{% if type == 'ProductTeaser' %}
+  <div class="two-columns">
+    {% for teaser in teasers %}
+      {% set teaser = teaser | merge({ 'discontinued' : ( parentDiscontinued or teaser.discontinued ) }) %}
+      {% set teaser = teaser | merge({ 'parentMetaTitle' : ( parentMetaTitle ) }) %}
+      <div class="teaser-collection__column">
+        {% include '@storybook/components/product/product-teaser/product-teaser.html.twig' with teaser only %}
+      </div>
+    {% endfor %}
+  </div>
+{% elseif type == 'ProductTeaserRow' %}
+  {% for teaser in teasers %}
+    {% set teaser = teaser | merge({ 'discontinued' : ( parentDiscontinued or teaser.discontinued ) }) %}
+    {% include '@storybook/components/product/product-teaser-row/product-teaser-row.html.twig' with teaser only %}
+  {% endfor %}
+{% endif %}
