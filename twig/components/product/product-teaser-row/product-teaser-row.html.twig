@@ -21,12 +21,12 @@
             <div class="product-teaser-row__actions center-align">
                 {% if productLink %}
                     <a class="product-teaser-row__detail-link" href="{{ productLink }}">
-                        {% 'See Details' | t %}
+                        {{ 'See Details' | t }}
                     </a>
                 {% endif %}
                 {% if quoteToolAccess and not discontinued %}
                     <a class="product-teaser-row__quote-link button button--light-grey" href="{{ productQuoteToolUrl.path }}">
-                        {% 'Get a Quote' | t %}
+                        {{ 'Get a Quote' | t }}
                     </a>
                 {% endif %}
             </div>

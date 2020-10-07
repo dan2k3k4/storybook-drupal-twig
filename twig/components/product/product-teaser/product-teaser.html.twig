@@ -13,11 +13,11 @@
     </h3>
     <div class="center-align">
         <a class="product-teaser__detail-link" href="{{ productLink }}" title="{{ title }}">
-            {% 'See Details' | t %}
+            {{ 'See Details' | t }}
         </a>
         {% if quoteToolAccess and not discontinued and not productQuoteToolUrl is empty %}
             <a class="product-teaser__quote-link button button--light-grey" href="{{ productQuoteToolUrl.path }}">
-                {% 'Get a Quote' | t %}
+                {{ 'Get a Quote' | t }}
             </a>
         {% endif %}
     </div>
