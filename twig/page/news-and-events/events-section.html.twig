@@ -1,5 +1,5 @@
 {% if graphql.featuredEvent|length > 0 %}
-    {% include '@storybook/components/events/events-hero/events-hero.html.twig' with graphql.featuredEvent[0] only %}
+    {% include '@twig/components/events/events-hero/events-hero.html.twig' with graphql.featuredEvent[0] only %}
 {% endif %}
 <section class="latest-events">
     <div class="events-overview__items">
@@ -7,7 +7,7 @@
             {% set eventsCount = 0 %}
             {% for event in graphql.latestEvents %}
                 {% if event.id != graphql.featuredEvent[0].id and eventsCount < 3 %}
-                    {% include '@storybook/components/events/events-teaser/events-teaser.html.twig' with event only %}
+                    {% include '@twig/components/events/events-teaser/events-teaser.html.twig' with event only %}
                     {% set eventsCount = eventsCount +1 %}
                 {% endif %}
             {% endfor %}

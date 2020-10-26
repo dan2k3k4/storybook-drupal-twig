@@ -1,7 +1,20 @@
 # Storybook Drupal Twig
 
-Steps to reproduce the issue:
+---
 
+Steps to reproduce the issue related to LitElements not rendering on the frontend.
+
+- `yarn`
+- `yarn run build-library`
+- `yarn run storybook`
+- Inspect the `Components: Accordion` story, the `<zi-accordion>` has no `#shadow-root`
+
+---
+
+
+Steps to reproduce the issue related to failed to build preview: Unexpected token u in JSON at position 0:
+
+- `git checkout de8c7e1c2a8f`
 - `yarn`
 - `yarn run build-library`
 - `yarn run build-storybook`

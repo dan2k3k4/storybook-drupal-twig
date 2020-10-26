@@ -1,5 +1,4 @@
 import { setConsoleOptions } from '@storybook/addon-console';
-import { withKnobs } from '@storybook/addon-knobs';
 import Twig from 'twig';
 import drupalizeTwig from 'twig-drupal-filters';
 import '../scripts';
@@ -30,4 +29,4 @@ export const parameters = {
   }
 };
 
-export const decorators = [withKnobs];
+export const decorators = [];

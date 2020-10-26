@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/html';
-import Wrapper from '../utils/storybook/decorators/Wrapper';
+// eslint-disable-next-line import/no-unresolved
+import Wrapper from '@decorators/Wrapper';
 
 const defaultFormStyles = () => `
   <div class="two-columns wysiwyg forms">

@@ -8,6 +8,7 @@ const common = require('./webpack.common');
 
 // Webpack configuration.
 module.exports = {
+  mode: 'development',
   entry: {
     scripts: './scripts.ts',
   },

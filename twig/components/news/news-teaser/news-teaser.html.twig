@@ -7,11 +7,11 @@
             {% if headerImage %}
                 <div class="news-teaser__image">
                     <a aria-labelledby="{{ titleId }}" class="news-teaser__entity-link" href="{{ entityUrl.path }}" title="{{ title }}">
-                        {% include '@storybook/components/media-image/media-image.html.twig' with {
-            mediaImage: headerImage.entity.mediaImage,
-            imageStyle: 'freeAspectRatioMedium',
-            calcAspectRatioHeight: 'true',
-          } only %}
+                        {% include '@twig/components/media-image/media-image.html.twig' with {
+                            mediaImage: headerImage.entity.mediaImage,
+                            imageStyle: 'freeAspectRatioMedium',
+                            calcAspectRatioHeight: 'true',
+                        } only %}
                     </a>
                 </div>
             {% endif %}

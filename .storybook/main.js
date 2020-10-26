@@ -1,3 +1,8 @@
+const path = require('path');
+
+// Import common configurations.
+const common = require('../webpack.common');
+
 module.exports = {
   stories: [
     './styles.css',
@@ -6,7 +11,37 @@ module.exports = {
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-actions',
-    '@storybook/addon-knobs',
     '@storybook/addon-viewport',
   ],
+
+  // Config Webpack
+  webpackFinal: async (config, { configType }) => {
+    // Alias
+    config.resolve.alias = {
+      '@twig': path.resolve(__dirname, '../', 'twig'),
+      '@decorators': path.resolve(__dirname, '../', 'utils/storybook/decorators'),
+    };
+
+    // Loaders
+    config.module.rules.push(
+      common.javascript,
+      common.assets,
+      common.css,
+      {
+        test: /\.twig$/,
+        use: 'twigjs-loader',
+      }
+    );
+
+    // Plugins
+    config.plugins.push(
+      ...common.plugins
+    );
+
+    // Support importing typescript files without extension.
+    config.resolve.extensions.push('.ts');
+
+    // Return the altered config
+    return config;
+  },
 };

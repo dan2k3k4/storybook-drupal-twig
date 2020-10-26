@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/html';
-import Wrapper from '../utils/storybook/decorators/Wrapper';
+// eslint-disable-next-line import/no-unresolved
+import Wrapper from '@decorators/Wrapper';
 
 storiesOf('Home', module)
   .addDecorator(Wrapper)
