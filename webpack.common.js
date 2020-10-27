@@ -7,7 +7,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
  * Default modules loader for JavaScript and TypeScript.
  */
 const javascript = {
-  test: /\.@(ts|js)$/,
+  test: /\.(ts|js)$/,
   use: [
     {
       loader: 'babel-loader',

@@ -1,9 +1,31 @@
 # Storybook Drupal Twig
 
+All `yarn run` commands should work fine now.
+
+However there are a lot of ESLint warnings:
+
+```
+WARNING in ./node_modules/telejson/node_modules/isobject/index.js
+Module Warning (from ./node_modules/eslint-loader/dist/cjs.js):
+Failed to load config "@storybook/eslint-config-storybook" to extend from.
+Referenced from: /Users/daniel.lemon/coding/storybook-drupal-twig/node_modules/telejson/package.json
+ @ ./node_modules/telejson/dist/index.js 14:39-58
+ @ ./node_modules/@storybook/channel-postmessage/dist/index.js
+ @ ./node_modules/@storybook/core/dist/client/preview/start.js
+ @ ./node_modules/@storybook/core/dist/client/preview/index.js
+ @ ./node_modules/@storybook/core/dist/client/index.js
+ @ ./node_modules/@storybook/core/client.js
+ @ ./node_modules/@storybook/html/dist/client/preview/index.js
+ @ ./node_modules/@storybook/html/dist/client/index.js
+ @ ./.storybook/generated-stories-entry.js
+ @ multi ./node_modules/@storybook/core/dist/server/common/polyfills.js ./node_modules/@storybook/core/dist/server/preview/globals.js ./.storybook/storybook-init-framework-entry.js ./node_modules/@storybook/addon-a11y/dist/a11yRunner.js-generated-other-entry.js ./node_modules/@storybook/addon-a11y/dist/a11yHighlight.js-generated-other-entry.js ./node_modules/@storybook/addon-actions/dist/preset/addDecorator.js-generated-other-entry.js ./node_modules/@storybook/addon-actions/dist/preset/addArgs.js-generated-other-entry.js ./.storybook/preview.js-generated-config-entry.js ./.storybook/generated-stories-entry.js ./node_modules/webpack-hot-middleware/client.js?reload=true&quiet=false&noInfo=undefined
+```
+
 ---
 
 Steps to reproduce the issue related to LitElements not rendering on the frontend.
 
+- `git checkout 8f334e7687dd`
 - `yarn`
 - `yarn run build-library`
 - `yarn run storybook`
